@@ -1,6 +1,7 @@
 package book.sheep.member.model.service;
 
 import java.sql.Connection;
+import java.util.List;
 
 import static book.sheep.common.JdbcTemplate.close;
 import static book.sheep.common.JdbcTemplate.getConnection;
@@ -57,5 +58,21 @@ public class MemberService {
 			close(conn);
 			return member;
 		}
+		
+		
+		
+		   //2. 배성은 11.08 모든 도서요청정보를 select
+		public List<Member> findAllMember() {
+			// 2.1 Connection 생성
+			Connection conn = getConnection();
+			// 2.2 Dao 호출s
+			List<Member> members = memberDao.findAllMember(conn);
+			// 2.3 자원반납
+			close(conn);
+			return  members ;
+		}
+		
+		
+		
 		
 }

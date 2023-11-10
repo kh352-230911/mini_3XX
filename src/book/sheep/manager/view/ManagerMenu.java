@@ -1,6 +1,5 @@
 package book.sheep.manager.view;
 
-import static book.sheep.common.LoginTemplate.ReadUser;
 import static book.sheep.common.LoginTemplate.RemoveUser;
 import static book.sheep.common.LoginTemplate.saveManager;
 
@@ -11,6 +10,7 @@ import book.sheep.bookRental.view.BookRentalMenu;
 import book.sheep.bookRequest.controller.BookRequestController;
 import book.sheep.bookRequest.view.BookRequestMenu;
 import book.sheep.manager.model.entity.Manager;
+import book.sheep.member.view.MemberMenu;
 import book.sheep.notice.view.NoticeMenu;
 
 /**
@@ -26,6 +26,7 @@ public class ManagerMenu
 {
 	private BookRequestController bookRequestController = new BookRequestController();
 	private BookRentalMenu bookRentalMenu = new BookRentalMenu();
+	private MemberMenu memberMenu = new MemberMenu();
 	private BookRequestMenu requestMainMenu = new BookRequestMenu();//도서요청관리
 	//회원관리
 	private BookMenu bookMenu = new BookMenu();//도서관리
@@ -61,7 +62,8 @@ public class ManagerMenu
 			case "1" : 
 				
 				//System.out.println("관리자 - 회원 관리");
-				bookRentalMenu.displayBookRentalMember();
+//				bookRentalMenu.displayBookRentalMember();
+				memberMenu.displayMemberRequest();
 				break;
 			case "2":
 				//System.out.println("관리자 - 도서 관리");

@@ -1,5 +1,7 @@
 package book.sheep.member.controller;
 
+import java.util.List;
+
 import book.sheep.member.model.entity.Member;
 import book.sheep.member.model.service.MemberService;
 
@@ -52,4 +54,19 @@ public class MemberController {
 		}
 		return member;
 	}
+	
+	   //1108 배성은 회원 이름/아이디/휴대폰 번호 찾는 메서드
+		public List<Member> findAllMember() {
+			List<Member> members = null;
+			try {	
+			  members =  memberService.findAllMember();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("> 불편을 드려 죄송합니다. : "+ e.getMessage());
+			}
+			
+			  return members;
+		} 
+	
+	
 }

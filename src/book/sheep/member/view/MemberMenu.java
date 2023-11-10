@@ -4,6 +4,8 @@ import static book.sheep.common.LoginTemplate.ReadUser;
 import static book.sheep.common.LoginTemplate.RemoveUser;
 import static book.sheep.common.LoginTemplate.saveMember;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import book.sheep.book.view.BookMenu;
@@ -205,6 +207,34 @@ public class MemberMenu {
 		System.out.print("아이디 : ");
 		return sc.next();
 	}
+	
+	
+    //조회된 회원의 이름/아이디/비밀번호를 보여주는 뭐시기
+	// 배성은 11.08
+	 public void displayMemberRequest() {
+    	List<Member> members = new ArrayList<>();
+    	
+    	members = memberController.findAllMember();
+    	
+    	System.out.println("-------------------------------------------------------------------------------");
+    	System.out.printf("%s \t%s \t%s \n",
+    			          "회원이름","회원 아이디","휴대폰 번호");
+    	System.out.println("-------------------------------------------------------------------------------");
+        if( members.isEmpty() || members == null) {
+        	System.out.println("조회된 회원정보가 결과가 없습니다. 😅");
+            System.out.println("  ");
+        }    	
+        else {
+        	//bookRequests LIST형태로, 테이블의 모든 값을 반환.
+        	for(Member member : members) {
+                System.out.printf("%s \t%s \t%s\n",
+               		member.getMember_name(),
+               		member.getMember_id(),
+               		member.getMember_phone());
+           	}
+    	System.out.println("-------------------------------------------------------------------------------");
+        }
+    } 
 	
 	
 }
